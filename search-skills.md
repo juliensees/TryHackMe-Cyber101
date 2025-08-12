@@ -33,7 +33,8 @@ Exploit Database
 
 ### Linux Commands
 
-Ctrl - C  = gets you back to the command line
+Ctrl - C  = gets you back to the command line (interrupts any processes currently happening)
+Ctrl - X = exits 
 
 echo - outputs any text that is provided
 whoami - find out what user you're logged in as
@@ -70,12 +71,12 @@ rm -R mydirectory
   - good for a large file that will take a while, whilst you do other things
 && - used to make a list of commands to run
   - command1 && command2
-  - will only run if command1 was successful, otherwise command2 won't happen
-> - send an output from a command to another place
+  - will only run if command1 was successful, otherwise command2 won't happen  
+ ">" - send an output from a command to another place
     - echo hey > welcome
       - will create a new file called welcome (that has "hey" written into it)
-      - if welcome already exists as a file, it will be overwritten
->> - adds the output at the end of an existing file (instead of overwriting)
+      - if welcome already exists as a file, it will be overwritten  
+ ">>" - adds the output at the end of an existing file (instead of overwriting)
 
 ### SSH
  - Secure Shell
@@ -109,3 +110,46 @@ su - substitute user (changes users)
 /tmp - short for temporary
   - is volatile and used to store data that is only needed to be accessed once or twice. it is cleared once the computer is restarted
   - good place to store things like enumeration scripts for pentesters
+
+### Terminal Text Editors
+
+Nano - used to create or edit a new or existing file within the nano text editor
+ nano myfile - will open the editor for a file named myfile
+Vim - a more advanced text editor
+wget - used to download files from the internet
+  wget https://assets.tryhackme.com/additional/linux-fundamentals/part3/myfile.txt       - will download the file from this link
+SCP - allows you to transfer files between two computers using the SSH protocol to provide both authentication and encryption
+- Copy a file on a local machine to a remote machine
+ * scp important.txt ubuntu@192.168.1.30:/home/ubuntu/transferred.txt
+    - "important.txt" is the name of the file we want to copy from our machine
+    - ubuntu is the user on the remote system
+    - 192.168.1.30 is the ip address of the remote system
+    - /home/ubuntu/transferred.txt is the folder to copy to, and "Transferred.txt" is the name of the new file we want to create with the copied txt
+- Copy a file from a remote machine to my local machine that i'm logged into
+ * scp ubuntu@192.168.1.30:/home/ubuntu/documents.txt notes.txt
+    - the command of SSH is the username and ip address of the remote computer
+    - separated by a colon
+    - then the location of the "documents.txt" file
+    - then copying that data to our current working directory, with the title of "notes.txt"
+  
+ ### Connecting to the internet in a terminal
+ python3 -m http.server
+    - starts a simple HTTP web server on your machine
+    - uses port 8000
+    * then i can open a new tab in ubuntu, and use: wget http://10.201.59.122:8000/.flag.txt     - to download the .flag.txt file 
+
+ ### Processes 101
+ - processes are programs that are running on your machine
+ -  They are managed by the kernel, where each process will have an ID associated with it, also known as its PID.
+ -  The PID increments for the order in which the process starts. I.e. the 60th process will have a PID of 60.
+   * ps command - will provide a list of the running processes
+   * ps aux command - to see the processes run by other users and those that don't run from a session (i.e. system processes)
+   * top command - gives real-time statistics about the processes running on your system (they will automatically refresh every 10 seconds, or when using arrow keys)
+   * kill command - terminates a process
+      - kill 1337    - will kill PID 1337
+       - SIGTERM - Kill the process, but allow it to do some cleanup tasks beforehand
+       - SIGKILL - Kill the process - doesn't do any cleanup after the fact
+       - SIGSTOP - Stop/suspend a process
+
+ systemd - one of the first processes to start when a system boots up. 
+    - it usually has a PID of 0 because it's one of the first
