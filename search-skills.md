@@ -35,6 +35,7 @@ Exploit Database
 
 Ctrl - C  = gets you back to the command line (interrupts any processes currently happening)
 Ctrl - X = exits 
+"q" - stops a process from running
 
 echo - outputs any text that is provided
 whoami - find out what user you're logged in as
@@ -142,9 +143,10 @@ SCP - allows you to transfer files between two computers using the SSH protocol 
  - processes are programs that are running on your machine
  -  They are managed by the kernel, where each process will have an ID associated with it, also known as its PID.
  -  The PID increments for the order in which the process starts. I.e. the 60th process will have a PID of 60.
-   * ps command - will provide a list of the running processes
-   * ps aux command - to see the processes run by other users and those that don't run from a session (i.e. system processes)
-   * top command - gives real-time statistics about the processes running on your system (they will automatically refresh every 10 seconds, or when using arrow keys)
+   * "ps" command - will provide a list of the running processes
+   * "ps aux" command - to see the processes run by other users and those that don't run from a session (i.e. system processes)
+   * " ps aux | less " - will give a more detailed version of each process. printing the full line
+   * "top" command - gives real-time statistics about the processes running on your system (they will automatically refresh every 10 seconds, or when using arrow keys)
    * kill command - terminates a process
       - kill 1337    - will kill PID 1337
        - SIGTERM - Kill the process, but allow it to do some cleanup tasks beforehand
@@ -153,3 +155,36 @@ SCP - allows you to transfer files between two computers using the SSH protocol 
 
  systemd - one of the first processes to start when a system boots up. 
     - it usually has a PID of 0 because it's one of the first
+    - Any program or piece of software that we want to start will start as what's known as a child process of systemd. This means that it is controlled by systemd, but will run as its own process (although sharing the resources from systemd) to make it easier for us to identify 
+
+ systemctl command
+  - start, stop, enable, disable
+  "systemctl start apache" - will start apache
+
+  ### Foreground & Backgrounding
+
+  echo "Hi THM"       - will output "Hi THM" in the terminal (just runs in the foreground)  
+  echo "Hi THM" &     - the ampersand makes the command run/process in the background so you can continue with other tasks   
+                      - will just output the ID of the echo process (not the text)
+
+   * great for things like copying files, so that it happens in the background
+   * with scripts, you can use Ctrl + Z to specifically background a process
+   * Ctrl + Z also will pause a current script or command
+
+- "fg" command brings processes back to the foreground
+
+* If we were to launch a process where the previous ID was "300", what would the ID of this new process be?
+   - it would be 301 because increments by 1, everytime we run a new process
+
+### Automation
+
+Cron process - used to schedule actions, using crontabs
+  - started during the boot process
+
+crontab - e
+      - used to edit crontabs within the terminal
+0 */12 * * * cp -R /home/cmnatic/Documents /var/backups/
+    - first * is minutes, 12 is hours, next is day of the month, month, day of the week, and then the command:
+        - copy "cmnatic's" "Documents" every 12 hours
+- "@reboot" means to run the task immediately after reboot, BUT ONLY ONCE!, not on repeat for every reboot
+    - so could be @reboot vncserver :1 -depth 24 -geometry 1900x1200
