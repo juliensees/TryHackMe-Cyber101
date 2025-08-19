@@ -1,5 +1,5 @@
 # Search Skills
-### Linux]
+### Linux
  - first created in 1991
  - The ss command (socket statistics) is part of the iproute2 utility suite and is faster and more efficient than netstat, especially when dealing with a large number of connections. It provides detailed socket information and is now the preferred tool on modern Linux distributions. While netstat is still available on some systems, it's considered obsolete.
 
@@ -42,6 +42,7 @@ whoami - find out what user you're logged in as
 ls - list
 cd - change directory
 cat - concatenate; which outputs the content of files
+less - displays the contents of a file, page by page (cat will display everything)
 pwd - print working directory; shows you where you are (listing all the folders you're now in)
 find - used to search for things much better/faster
   find -name *.txt
@@ -188,3 +189,18 @@ crontab - e
         - copy "cmnatic's" "Documents" every 12 hours
 - "@reboot" means to run the task immediately after reboot, BUT ONLY ONCE!, not on repeat for every reboot
     - so could be @reboot vncserver :1 -depth 24 -geometry 1900x1200
+
+### Package Management
+
+- "apt" - command used to install software onto an ubuntu system
+   - add-apt-repository          - will add a new repository
+   - when using the apt command, the benefit vs the dpkg package installer, is that software gets checked for updates with "apt"
+
+- GPG (Gnu Privacy Guard) keys are used as a safety check to match what the system trusts and what the developers used, otherwise software wont download
+
+- apt update - will update all software
+- apt install [software name]
+- apt remove [software name] - will remove software
+
+### Logs
+
