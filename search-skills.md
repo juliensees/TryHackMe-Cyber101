@@ -202,5 +202,56 @@ crontab - e
 - apt install [software name]
 - apt remove [software name] - will remove software
 
-### Logs
+### Bash Script
 
+- no spaces to create a variable
+- to recall the variable you've created, use "$"
+
+name="Jammy"
+echo $name
+Jammy
+
+- ./example.sh     - ".sh" is a bash script extension
+- $# - will generate the number of arguments supplied to a script
+- $0 - supplies the filename (technically the first argument)
+- $4 - will give the 4th argument
+
+*Array - used to store multiple pieces of data in one variable, which can then be exxtracted by using an index
+    - all indexes start at 0
+
+- "unset" - used to remove an item from an index
+
+- creates a variable, and the brackets create the index
+  - transport=('car' 'train' 'bike' 'bus')
+  - echo "${transport[1]}"
+       - this would output "train" because remember, it always starts with 0... so car is 0, and train is 1
+  - unset transport [1]
+        - will remove train
+    * Another option is: transport[1]='trainride' to insert a word into the existing variable array
+
+### Conditionals
+
+- Must end the conditional with "fi" - it "closes/ends"e the conditional
+
+if [ 5 -gt 3 ]; then
+    echo "Greater than 3"
+else
+    echo "Not greater than 3"
+fi
+
+Operator Description
+
+-eq = Checks if the value of two operands are equal or not; if yes, then the condition becomes true.
+
+-ne = Checks if the value of two operands are equal or not; if values are not equal, then the condition becomes true.
+
+-gt = Checks if the value of left operand is greater than the value of right operand; if yes, then the condition becomes true.
+
+-lt = Checks if the value of left operand is less than the value of right operand; if yes, then the condition becomes true.
+
+-ge = Checks if the value of left operand is greater than or equal to the value of right operand; if yes, then the condition becomes true.
+
+- "-r" - checks if it's a read file
+- "-d" - checks if it's a directory
+- "-w" - checks if it's a writeable file
+- "-f" - checks if the file exists
