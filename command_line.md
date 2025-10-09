@@ -15,17 +15,23 @@ CTRL + C - will exit a "| more" query
 ipconfig - IP address, subnet mask, and default gateway.  
 ipconfig /all - shows even more extensive info  
 ping " " - sends a specific ICMP packet and listen for a response. (ex. ping google.com)  
-tracert " " - stands for "trace route"  
-  - traces the network route traversed to reach the target. it expects the routers on the path to notify us if they drop a packet because its time-to-live (TTL) has reached zero.  
-nslookup " " - looks up a host or domain and returns its IP address. (ex. nslookup google.com)  
-netstat - displays current network connections and listening ports.  
-  - netstat -h   = help page for netstat  
+
+tracert " " 
+   -   - stands for "trace route"    
+   -    - traces the network route traversed to reach the target. it expects the routers on the path to notify us if they drop a packet because its time-to-live (TTL) has reached             zero.
+          
+nslookup " " - looks up a host or domain and returns its IP address. (ex. nslookup google.com)
+netstat - displays current network connections and listening ports.    
+   -   - netstat -h   = help page for netstat
+             
 dir /a - Displays hidden and system files  
 dir /s - Displays files in the current directory and all subdirectories.  
 mkdir - used to create a new directory  
 rmdir - used to remove a directory  
 del OR erase - used to delete a file  
-* - used for multiple files, so copy *.md C:/markdown , will copy all files ending with .md to that markdown folder  
+
+* - used for multiple files, so copy *.md C:/markdown , will copy all files ending with .md to that markdown folder
+    
 tasklist - basically a task manager (within CLI), that shows all processes that are running  
   tasklist /? = shows "help/filter" options for tasklist  
   tasklist /FI "imagename eq sshd.exe" - searches for tasks related to sshd.exe  
