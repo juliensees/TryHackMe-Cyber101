@@ -60,3 +60,25 @@ Get-ChildItem | Sort-Object Length -Descending | Select-Object -First 1
 Select-string = This cmdlet searches for text patterns within files, similar to grep in Unix-based systems or findstr in Windows Command Prompt. It’s commonly used for finding           specific content within log files or documents.
       - Select-String -Path ".\captain-hat.txt" -Pattern "hat" 
 
+Get-ComputerInfo - cmdlet retrieves comprehensive system information, including operating system information, hardware specifications, BIOS details, and more. 
+
+Get-LocalUser - lists all the local user accounts on the system
+
+Get-NetIPConfiguration = provides detailed information about the network interfaces on the system, including IP addresses, DNS servers, and gateway configurations.
+  - same as ipconfig in CLI
+
+Get-NetIPAddress = cmdlet will show details for all IP addresses configured on the system, including those that are not currently active.
+
+Get-Process = provides a detailed view of all currently running processes, including CPU and memory usage, making it a powerful tool for monitoring and troubleshooting.
+
+Get-Service = allows the retrieval of information about the status of services on the machine, such as which services are running, stopped, or paused. It is used extensively in troubleshooting by system administrators, but also by forensics analysts hunting for anomalous services installed on the system.
+
+Get-NetTCPConnection = displays current TCP connections, giving insights into both local and remote endpoints. This cmdlet is particularly handy during an incident response or malware analysis task, as it can uncover hidden backdoors or established connections towards an attacker-controlled server.
+
+Get-FileHash = generates file hashes, which is particularly valuable in incident response, threat hunting, and malware analysis, as it helps verify file integrity and detect potential tampering.
+
+### Scripting is the process of writing and executing a series of commands contained in a text file, known as a script, to automate tasks that one would generally perform manually in a shell, like PowerShell.
+
+Invoke-Command = is essential for executing commands on remote systems, making it fundamental for system administrators, security engineers and penetration testers.
+  What is the syntax to execute the command Get-Service on a remote computer named "RoyalFortune"? Assume you don't need to provide credentials to establish the connection. [for the sake of this question, avoid the use of quotes (" or ') in your answer]  
+    Invoke-Command -ComputerName RoyalFortune -ScriptBlock { Get-Service }  
