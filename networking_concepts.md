@@ -77,5 +77,37 @@ Private IP Addresses
 Router
   - forwards data packets to the proper network
       - functions at layer 3, inspecting the IP address and forwarding the packet to the best network (router) so the packet gets closer to its destination
-   
-      - 
+
+IP protocol allows you to reach a destination host on the network; the host is identified by its IP address. 
+ - protocols enable processes on networked hosts to communicate with each other 
+
+Transport Procols 
+ UDP (User Datagram Protocol) - a connectionless protocol that operates at the transport layer that allows you to reach a specific process on the target host
+   - a connectionless protocol means it doesn't actually establish a connection, but just sends whatever you wanted
+      - they are faster than TCP in delivery, but they don't provide any info on whether the packet was delivered
+
+ TCP (Transmission Control Protocol) - a connection oriented transport protocol
+   - requires the establishment of a TCP connection before any data can be sent
+   - each data octet has a sequence number so that the receiver can acknowledge the reception of data with an acknowledgement number specifying the last received octet
+      - a TCP connection is established using a 3-way handshake; using 2 flags:
+         - SYN (Synchronise)
+         - ACK (Acknowledgement)
+
+        1. SYN Packet: The client initiates the connection by sending a SYN packet to the server (contains the client's ranodmly chosen initial sequence number)
+         2. SYN-ACK Packet: The server responds to the SYN  packe twith a SYN-ACK packet, which adds the initial sequence number randomly chosen by the server
+         3. ACK Packet: The 3-way handshake is completed as the client sends an ACK packe to acknowledge the reception of the SYN-ACK packet
+       
+       ### Both UDP & TCP identifies the process of initiating or waiting (listening) for a connection using ports
+      ### Valid port number ranges between 1 and 65535 (port 0 is reserved)
+
+Encapsulation - refers to the process of every layer adding a header (and sometimes a trailer) to the received unit of data and sending the "ecapsulated" unit to the layer below
+  - starts at the Application layer, where a user inputs data they want to send into the application (e-mail/msg)
+  - transport layer adds a TCP or UDP header to create a TCP segment or UDP datagram
+  - network layer, it adds the proper IP  header to get an IP packet that can be routed over the internet
+  - link layer, adds the appropriate header and trailer to get a wifi or ethernet frame
+     ### this process is then reversed on the receiving end until the application data is extracted
+
+TELNET (Teletype Network) - a network protocol for remote terminal connections
+ - initially used for remote admin, telnet can connect to any server listening on a TCP port number
+  - CTRL +] - is to quit (though you need to then type quit, and enter)
+  - 
