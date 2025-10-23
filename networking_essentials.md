@@ -4,7 +4,8 @@
     - DNS server
 
 Dynamic Host Configuration Protocol (DHCP) - application-level protocol that relies on UDP
-  - basically used to give devices on a network their IP addresses and other network settings so they can communicate without manual configuration  
+  - basically used to give devices on a network their IP addresses and other network settings so they can communicate without manual configuration
+        - also used to find out the DNS server and default route on a network automatically
   - the server listens on UDP port 67, and the client sends from UDP port 68  
   - smartphone and laptop are configured to use DCP by default  
  - follows 4 steps: Discover, Offer, Request, and Acknowledge (DORA)  
