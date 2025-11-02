@@ -8,3 +8,12 @@
    - CNAME Record: The CNAME (Canonical Name) record maps a domain name to another domain name. For example, www.example.com can be mapped  
               to example.com or even to example.org.  
    - MX Record: The MX (Mail Exchange) record specifies the mail server responsible for handling emails for a domain.  
+
+- HTTP(S)
+
+    - GET retrieves data from a server, such as an HTML file or an image.  
+    - POST allows us to submit new data to the server, such as submitting a form or uploading a file.  
+    - PUT is used to create a new resource on the server and to update and overwrite existing information.  
+    - DELETE, as the name suggests, is used to delete a specified file or resource on the server.  
+
+- HTTP and HTTPS commonly use TCP ports 80 and 443, respectively, and less commonly other ports such as 8080 and 8443.  
