@@ -110,8 +110,8 @@ Encapsulation - refers to the process of every layer adding a header (and someti
 TELNET (Teletype Network) - a network protocol for remote terminal connections
  - initially used for remote admin, telnet can connect to any server listening on a TCP port number
   - CTRL +] - is to quit (though you need to then type quit, and enter)
- - to request a webpage
- - telnet 10.201.69.110 80 (or other ip addres & port)
+ ###  to request a webpage
+ - telnet 10.201.69.110 80 (or other ip address & port)
  - GET / HTTP/1.1
    Host: 10.201.69.110
    Connection: close
