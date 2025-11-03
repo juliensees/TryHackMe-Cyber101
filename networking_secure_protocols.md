@@ -26,4 +26,25 @@
     IMAP (143)  
     IMAP3 (993)  
 
-    
+  ### OpenSSH
+  - Benefits  
+        - Secure authentication: Besides password-based authentication, SSH supports public key and two-factor                       authentication.  
+        - Confidentiality: OpenSSH provides end-to-end encryption, protecting against eavesdropping. Furthermore, it                   notifies you of new server keys to protect against man-in-the-middle attacks.  
+        - Integrity: In addition to protecting the confidentiality of the exchanged data, cryptography also protects                   the integrity of the traffic.  
+        - Tunneling: SSH can create a secure “tunnel” to route other protocols through SSH. This setup leads to a  
+            VPN-like connection.  
+        - X11 Forwarding: If you connect to a Unix-like system with a graphical user interface, SSH allows you to use               the graphical application over the network.
+
+    - the TELNET server will listen on port 23, but the SSH server will listen on port 22
+    - connect using the command "ssh username@hostname" or IP address
+    - the argument -X is required to support running GUI
+          - ssh 192.168.124.148 -X
+   
+    ### SFTP (SSH File Transfer Protocol)
+    - uses port 22
+    - use command "sftp username@hostname"
+    - is newer than FTPS (used in legacy systems, windows servers, etc)
+          - unless a business partner or legacy system requires FTPS, use SFTP
+      - a lot of banks use FTPS, among other legacy systems
+     
+    ### VPN (Virtual Private Network)
