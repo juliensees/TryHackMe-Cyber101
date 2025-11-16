@@ -48,3 +48,7 @@
       - a lot of banks use FTPS, among other legacy systems
      
     ### VPN (Virtual Private Network)
+
+- You must put in a ssl log key, in order to decrypt in wireshark so that it's in plain text.
+      - right click on one of the items that is a TLS, Protocol Preferences, Transport layer Security, Open Transport Layer Security.
+               - add the SSL key to the "Pre-Master Secret Log filename"
