@@ -38,3 +38,36 @@ PTR - "pointer"
 
 ### IP addresses are controlled by ISP's (internet service providers) and cloud providers 
   - ex. 45.113.0.203.in-addr.arpa.  PTR  myhost.example.com.
+  - 
+- below saves the tcpdump file from example.com to a file named "http.pcap"
+  sudo tcpdump host example.com -w http.pcap
+
+- Captures live traffic
+  tcpdump -n icmp | wc -l
+- Captures traffic from the specific traffic.pcap file
+tcpdump -n -r traffic.pcap icmp | wc -l
+
+"wc" - used to count the lines by piping the output through this command (-1 is line by line)  
+
+- When a host wants the MAC address for an IP on the local network, it sends an ARP request  
+- In order to find out what the MAC address is that's inquiring, use:  
+   - tcpdump -n -r traffic.pcap arp
+- Below command will filter DNS traffic (which is always on port 53)
+   - tcpdump -n -r traffic.pcap port 53
+ 
+### man pcap-filter   ---> will show manual list for all possible filters
+
+- Below command will filter packets that only have reset flags (tcp-rst) --> don't forget the piping command!!
+tcpdump -n -r traffic.pcap 'tcp[tcp-flags] == tcp-rst' | wc -l
+
+- Below command will filter pakcets that have more than 15000 bytes
+ tcpdump -n -r traffic.pcap greater 15000
+- Below command will find the MAC address of who sent an ARP request
+tcpdump -n -e -r traffic.pcap arp
+
+Tcpdump is a rich program with many options to customize how the packets are printed and displayed. We have selected to cover the following five options:  
+  -q: Quick output; print brief packet information  
+  -e: Print the link-level header  
+  -A: Show packet data in ASCII  
+  -xx: Show packet data in hexadecimal format, referred to as hex  
+  -X: Show packet headers and data in hex and ASCII  
